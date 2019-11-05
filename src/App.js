@@ -6,8 +6,10 @@ import { fetchCreatures } from './actions/creatureActions';
 import CreaturesContainer from "./containers/CreaturesContainer"
 import NewCreatureForm from "./components/NewCreatureForm"
 
+import Header from "./components/layout/Header"
 import Nav from "./components/layout/Nav"
 import Home from "./components/layout/Home"
+import Errors from "./components/layout/Errors"
 class App extends Component {
   constructor(props){
     super(props)
@@ -29,6 +31,7 @@ class App extends Component {
     return (
     <Router>
       <Nav />
+      <Header />
       <div className ="App">
       <h1>Mystagram</h1>
         <div className='container'>
@@ -36,7 +39,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/creatures/new" render={props => <NewCreatureForm {...props} addNewCreature={this.addNewCreature} />} />
             <Route exact path="/creatures" render={props => <CreaturesContainer {...props} creatures={this.state.creatures} />} />
-            <Route exact path="/creatures/:id" render={props => <CreaturesContainer {...props} creatures={this.state.creatures} />} />
+            <Route component={Errors} />
           </Switch>
         </div>
       </div>
