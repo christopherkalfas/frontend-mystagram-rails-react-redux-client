@@ -12,7 +12,13 @@ const creatureReducer = (state = { creatures: [],loading: false }, action) => {
                 ...state,
                 creatures: action.creatures,
                 loading: false 
-            }      
+            } 
+            
+        case 'ADD_NEW_CREATURE':
+            return {
+                ...state,
+                creatures: [...state.creatures, action.creature]
+            }
         default:
             return state
     }

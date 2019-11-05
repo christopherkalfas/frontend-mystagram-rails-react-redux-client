@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { addNewCreature } from '../actions/creatureActions'
 
 class NewCreatureForm extends Component {
     constructor(props){
@@ -16,19 +19,14 @@ class NewCreatureForm extends Component {
 
     handleChange = event => {
         this.setState({
-            name: event.target.value,
-            species: event.target.value,
-            location: event.target.value,
-            temperament: event.target.value,
-            image: event.target.value,
+            [event.target.name]: event.target.value
         })
     }
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addCreature( this.state )
-
-        this.props.history.push("/creatures") //redirect to creatures page
+        this.props.addNewCreature( this.state, this.props.history )
+         //redirect to creatures page
     }
 
     render() {
@@ -67,4 +65,4 @@ class NewCreatureForm extends Component {
     }
 }
 
-export default NewCreatureForm
+export default connect(null, { addNewCreature })(NewCreatureForm)

@@ -24,13 +24,7 @@ class App extends Component {
     this.props.fetchCreatures()
   }
 
-  addCreature = creature => {
-    creature.id = this.state.id + 1
-    this.setState({
-      creatures: [...this.state.creatures, creature],
-      id: this.state.id + 1
-    })
-  }
+
   render(){
     return (
     <Router>
@@ -40,7 +34,7 @@ class App extends Component {
         <div className='container'>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/creatures/new" render={props => <NewCreatureForm {...props} addCreature={this.addCreature} />} />
+            <Route exact path="/creatures/new" render={props => <NewCreatureForm {...props} addNewCreature={this.addNewCreature} />} />
             <Route exact path="/creatures" render={props => <CreaturesContainer {...props} creatures={this.state.creatures} />} />
             <Route exact path="/creatures/:id" render={props => <CreaturesContainer {...props} creatures={this.state.creatures} />} />
           </Switch>

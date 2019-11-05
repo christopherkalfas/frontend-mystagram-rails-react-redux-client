@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Creatures from '../components/Creatures'
 import { connect } from 'react-redux'
-import { addCreature } from "../actions/newCreatureAction"
+import { addNewCreature } from "../actions/creatureActions"
 
 
 class CreaturesContainer extends Component {
@@ -24,4 +24,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, { addCreature })(CreaturesContainer)
+export default connect(mapStateToProps, { addNewCreature })(CreaturesContainer)
