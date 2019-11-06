@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-export class Errors extends Component {
-    render() {
-        return(
-            <div>
-                This page doesn't exist. Unlike the creatures on Mystagram!
-            </div>
-        )
-    }
+const Errors = () => {
+    return(
+        <div>
+           This page doesn't exist. Unlike the creatures on Mystagram!
+        </div>
+    )
 }
 
 export default Errors

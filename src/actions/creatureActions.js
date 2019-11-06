@@ -33,3 +33,29 @@ export const addNewCreature = ( creature, history ) => {
     }
 }
 
+export const updateLikes = (creature, actionType) => {
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/creatures/${creature.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'likes': creature.likes
+            })
+        })
+            .then(response => {
+                return response.json()
+            })
+            .then(creature => {
+                dispatch({type: actionType, creature})
+
+            })
+    }
+}
+
+
+
+
+

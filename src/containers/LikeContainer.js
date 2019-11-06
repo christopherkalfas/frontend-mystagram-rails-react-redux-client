@@ -1,33 +1,42 @@
 import React, { Component } from 'react'
 import IncreaseLikeButton from '../components/likeComponents/increaseLikeButton'
 import DecreaseLikeButton from '../components/likeComponents/decreaseLikeButton'
+import { connect } from 'react-redux'
+import { updateLikes } from '../actions/creatureActions'
 
-export class Liker extends Component {
-    state = {
-        likes: 0
-    }
+export class LikeContainer extends Component {
 
     handleIncrement = () => {
-        let increaseLikes = this.state.likes + 1
-        this.setState({
+        let increaseLikes = this.props.creature.likes + 1
+        let updatedCreature = {
+            ...this.props.creature,
             likes: increaseLikes
-        })
+        }
+        this.props.updateLikes(updatedCreature, 'INCREASE_LIKES')
+        
     }
 
     handleDecrement = () => {
-        let decreaseLikes = this.state.likes - 1
-        this.setState({
+        let decreaseLikes = this.props.creature.likes - 1
+        let updatedCreature = {
+            ...this.props.creature,
             likes: decreaseLikes
-        })
+        }
+        this.props.updateLikes(updatedCreature, 'DECREASE_LIKES')
     }
     render(){
         return(
             <div>
-            <IncreaseLikeButton onClick={this.handleIncrement} />
-            <DecreaseLikeButton onClick={this.handleDecrement} />
+            <IncreaseLikeButton handleIncrement={this.handleIncrement} />
+            <DecreaseLikeButton handleDecrement={this.handleDecrement} />
             </div>
         )
     }
 }
 
-export default Liker
+
+
+
+    
+
+export default connect(null,{ updateLikes })(LikeContainer)

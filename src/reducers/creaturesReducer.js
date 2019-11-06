@@ -19,6 +19,22 @@ const creatureReducer = (state = { creatures: [],loading: false }, action) => {
                 ...state,
                 creatures: [...state.creatures, action.creature]
             }
+        case 'INCREASE_LIKES':
+
+            return{
+                ...state,
+                creatures: state.creatures.map(creature => {
+                    return creature.id === action.creature.id ? action.creature : creature
+                })
+            }
+        case 'DECREASE_LIKES':
+            return {
+                ...state,
+                creatures: state.creatures.map(creature => {
+                    return creature.id === action.creature.id ? action.creature : creature
+                })
+            }
+
         default:
             return state
     }

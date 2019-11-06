@@ -1,15 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class DecreaseLikeButton extends Component {
-
-    render(){
+const DecreaseLikeButton = (props) => {
         return(
             <div>
-            <button className='decrease-like-btn'> Decrease Likes</button>
+                <button className='decrease-like-btn' onClick={props.handleDecrement}> Decrease Likes</button>
             </div>
         )
-    }
-
 }
     
     
