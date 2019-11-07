@@ -20,3 +20,55 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  background: rgb(201,174,238);
+  background: radial-gradient(circle, rgba(201,174,238,1) 14%, rgba(148,206,233,1) 100%);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+
+.navbar navbar-default {
+  width: relative;
+  display: flex;
+}
+
+.container{
+  padding: 2px 16px
+}
+
+
+.card-img-top {
+ 
+  object-fit: fill;
+}
+
+.card-deck {
+  /* display: relative; */
+  background-color: #fafafa !important;
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,.11), 0 5px 15px 0 rgba(0,0,0,.08);
+  padding: 16px 16px;
+  width: 60rem;
+}

@@ -10,6 +10,8 @@ import Header from "./components/layout/Header"
 import Nav from "./components/layout/Nav"
 import Home from "./components/layout/Home"
 import Errors from "./components/layout/Errors"
+
+import '../node_modules/bootstrap/dist/css/bootstrap.css.map'
 class App extends Component {
   constructor(props){
     super(props)
@@ -30,10 +32,9 @@ class App extends Component {
   render(){
     return (
     <Router>
-      <Nav />
       <Header />
+      <Nav />
       <div className ="App">
-      <h1>Mystagram</h1>
         <div className='container'>
           <Switch>
             <Route exact path="/" component={Home} />

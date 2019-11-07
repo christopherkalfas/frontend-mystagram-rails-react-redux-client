@@ -2,8 +2,8 @@ import React from 'react'
 
 const Header = () => {
     return(
-        <div className='header blue darken-3 white-text'>
-            <h1 className="center">Welcome to Mystagram!</h1>
+        <div>
+            <h1 className="text-center">Mystagram!</h1>
         </div>
     )
 }

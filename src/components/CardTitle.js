@@ -4,9 +4,9 @@ export class CardTitle extends Component {
 
     render(){
         return (
-            <span className="card-title">
+            <h2 className="card-title">
                 {this.props.children}
-            </span>
+            </h2>
         )
     }
 }
