@@ -19,10 +19,9 @@ export class Creature extends Component {
                     <h4 className="card-text"> <em>Location:</em> <strong>{creature.location}</strong></h4>
                     <h4 className="card-text"> <em>Temperament:</em> <strong>{creature.temperament}</strong></h4>
                     <br/>
-                    <h4 className="card-text"> <em>Likes:</em> <strong>{creature.likes}</strong></h4>
-                    <div className="btn-group" role="group" aria-label="Basic example">
+                    <h4 className="card-text lg-col"> <em>Likes:</em> <strong>{creature.likes}</strong></h4>
+                    
                     <LikeContainer creature={creature} />
-                    </div>
                 </CardContent>
             </CreatureCard>
     
