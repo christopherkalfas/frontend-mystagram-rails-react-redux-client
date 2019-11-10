@@ -34,34 +34,16 @@ class NewCreatureForm extends Component {
 
     render() {
         return(
-            <div>
-                <form id='creature-form' onSubmit={this.handleSubmit}>
-                    <div className='input-field'>
-                        <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
-                        <label htmlFor='name'>Name</label>
+            <div className="wrapper">
+                <form className='creature-form' onSubmit={this.handleSubmit}>
+                    <div className='input-fields'>
+                        <input type="text" className="input" name="name" id="name" placeholder="Creature Name" value={this.state.name} onChange={this.handleChange} />
+                        <input type="text" className="input" name="species" id="species" placeholder="Species" value={this.state.species} onChange={this.handleChange} />
+                        <input type="text" className="input" name="location" id="location" placeholder="Creature Location" value={this.state.location} onChange={this.handleChange} />
+                        <input type="text" className="input" name="temperament" id="temperament" placeholder="Temperament" value={this.state.temperament} onChange={this.handleChange} />
+                        <input type="text" className="input" name="image" id="image" placeholder="Image of Creature" value={this.state.image} onChange={this.handleChange} />
                     </div>
-
-                    <div className='input-field'>
-                        <input type="text" name="species" id="species" value={this.state.species} onChange={this.handleChange} />
-                        <label htmlFor='species'>Species</label>
-                    </div>
-
-                    <div className='input-field'>
-                        <input type="text" name="location" id="location" value={this.state.location} onChange={this.handleChange} />
-                        <label htmlFor='location'>Location</label>
-                    </div>
-
-                    <div className='input-field'>
-                        <input type="text" name="temperament" id="temperament" value={this.state.temperament} onChange={this.handleChange} />
-                        <label htmlFor="temperament">Temperament</label>
-                    </div>
-
-                    <div className='input-field'>
-                        <input type="text" name="image" id="image" value={this.state.image} onChange={this.handleChange} />
-                        <label htmlFor='image'>Image</label>
-                    </div>
-
-                    <input type="submit" value="Create Creature" className="btn" />
+                    <input type="submit" value="Create Creature" className="submit-btn" />
                 </form>
             </div>
         )

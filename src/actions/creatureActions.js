@@ -27,7 +27,9 @@ export const addNewCreature = ( creature, history ) => {
         .then(response => response.json())
         .then(creature => {
             dispatch({ type: 'ADD_NEW_CREATURE', creature })
+            //making sure my promise is resolved before redirect
             history.push('/creatures')
+            //to make sure front end store has updated
         })
 
     }

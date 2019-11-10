@@ -3,7 +3,7 @@ import React from 'react'
 const DecreaseLikeButton = (props) => {
         return(
             <div>
-                <button className='decrease-like-btn' onClick={props.handleDecrement}> Decrease Likes</button>
+                <button className='btn btn-danger btn-lg btn-block' onClick={props.handleDecrement}> Decrease Likes</button>
             </div>
         )
 }
