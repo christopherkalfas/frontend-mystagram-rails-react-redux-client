@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CreatureCard from './CreatureCard'
 import CardContent from './CardContent'
-import CardTitle from './CardTitle'
+
 import LikeContainer from '../containers/LikeContainer'
 
 
@@ -9,19 +9,20 @@ export class Creature extends Component {
     render(){
         const {creature} = this.props
 
-       
         return(
         
             <CreatureCard>
                 <CardContent>
-                    <CardTitle></CardTitle>
                     <img src={creature.image}  className="card-img-top" alt={`${creature.name}-pic`}/>
-                    <p className='card-title'>{creature.name}</p>
-                    <p className="card-text"> Species: {creature.species}</p>
-                    <p className="card-text"> Location: {creature.location}</p>
-                    <p className="card-text"> Temperament: {creature.temperament}</p>
-                    <p className="card-text"> Likes: {creature.likes}</p>
+                    <h1 className='card-title'><strong>{creature.name}</strong></h1>
+                    <h4 className="card-text"> <em>Species:</em> <strong>{creature.species}</strong></h4>
+                    <h4 className="card-text"> <em>Location:</em> <strong>{creature.location}</strong></h4>
+                    <h4 className="card-text"> <em>Temperament:</em> <strong>{creature.temperament}</strong></h4>
+                    <br/>
+                    <h4 className="card-text"> <em>Likes:</em> <strong>{creature.likes}</strong></h4>
+                    <div className="btn-group" role="group" aria-label="Basic example">
                     <LikeContainer creature={creature} />
+                    </div>
                 </CardContent>
             </CreatureCard>
     
@@ -30,7 +31,7 @@ export class Creature extends Component {
 
 }
 
-
+//convert to functional component-
 
 
 export default Creature

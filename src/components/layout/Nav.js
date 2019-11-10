@@ -5,7 +5,7 @@ export class Nav extends Component {
     render() {
         return(
             <nav className='navbar-header'>
-                <div className='container'>
+                <div className='nav-container'>
                     <ul className="navbar navbar-default">
                         <li className="nav-item">
                             <Link to="/">Home</Link>

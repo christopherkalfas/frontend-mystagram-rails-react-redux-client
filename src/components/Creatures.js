@@ -13,7 +13,7 @@ class Creatures extends Component {
 
         return(
             <div className='creatures-list'>
-                <h3 className="center">List of Creatures</h3>
+                <img src='https://fontmeme.com/permalink/191108/ca6621049565d7a4a27985c547fd7988.png' alt='list-custom-font' className='list-custom-font'/>
                
                 { creaturesList }
                

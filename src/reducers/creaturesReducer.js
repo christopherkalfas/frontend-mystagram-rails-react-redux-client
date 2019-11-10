@@ -3,7 +3,6 @@ const creatureReducer = (state = { creatures: [],loading: false }, action) => {
         case 'LOADING_CREATURES':
             return {
                 ...state,
-                creatures: [...state.creatures],
                 loading: true
             }
         
