@@ -1,4 +1,126 @@
+### Mystagram
+---
+
+A full-stack app built on Rails(API) and React/Redux with Thunk middleware. Mystagram is a mix between Instagram and a Reddit thread. It allows users to add a mythical creature and up or down vote the creature based on popularity. 
+
+### Motivation
+---
+
+This project was created as my final project for the Flatiron school. I decided I wanted to make a web application that used common and popular features from Instagram and Reddit and add my own interests in mythology.  
+
+![image of Buckpeak](https://media.giphy.com/media/8xQM7ajAkpsVa/giphy.gif "Buckbeak")
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Features
+---
+#### Creature Voting
+![image of Mystagram](https://i.ibb.co/cvyJtNF/Screen-Shot-2019-12-05-at-1-33-37-PM.png "App Picture 1")
+<br/>
+As a creature's number of likes is changed its position climbs (or falls) in the app. Similar to a Reddit thread.
+
+![image of sort by popularity](https://i.ibb.co/Xsn1YdC/Screen-Shot-2019-12-05-at-1-55-12-PM.png "AppPic2")
+
+#### Adding New Creature
+
+![image of form](https://i.ibb.co/345CXdy/Screen-Shot-2019-12-05-at-2-05-44-PM.png "creature form")
+
+### Code Example
+---
+#### Using Thunk middleware 
+
+#### index.js
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import creatureReducer from './reducers/creaturesReducer.js'
+
+const store = createStore(creatureReducer, applyMiddleware(thunk))
+
+
+ReactDOM.render(
+<Provider store={store}>
+    <App />
+</Provider>,
+ document.getElementById('root'));
+ ```
+##### App.js
+``` 
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchCreatures } from './actions/creatureActions';
+
+class App extends Component { 
+      componentDidMount() {
+        console.log(this.props)
+        this.props.fetchCreatures()
+      }
+  ```
+  ##### App.js
+``` 
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCreatures: () => dispatch(fetchCreatures()),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App)
+```
+
+#### creaturesActions.js
+```
+export const fetchCreatures = () => {
+    return (dispatch) => {
+        dispatch({type: 'LOADING_CREATURES'})
+          return fetch('http://localhost:3001/creatures')
+            .then(response => {
+                return response.json()
+            })
+            .then(responseJSON => {
+                dispatch({type: 'ADD_CREATURES', creatures: responseJSON })
+            })
+    }
+}
+```
+
+#### creaturesReducer.js
+```
+const creatureReducer = (state = { creatures: [],loading: false }, action) => {
+    switch(action.type){
+        case 'LOADING_CREATURES':
+            return {
+                ...state,
+                loading: true
+            }
+        
+        case 'ADD_CREATURES':
+            return {
+                ...state,
+                creatures: action.creatures,
+                loading: false 
+            } 
+ ```
+### Thunk and Dispatch
+---
+Vanilla Redux expects us to return an action object. Thunk allows us to use asynchronous action creators or functions that return the state later through dispatch method. This gives us direct control of dispatch methods.  
+
+#### Thunk Sequence of Events
+![Thunk Flow](https://i.ibb.co/j3Wbz1V/Screen-Shot-2019-12-05-at-5-52-04-PM.png "Thunk SoE")
+
+
+
+### User Walkthrough
+---
+
+[![mystavid](http://img.youtube.com/vi/vFPFgGeIHZY/0.jpg)](http://www.youtube.com/watch?v=vFPFgGeIHZY "Mystagram User Walkthrough")
+
+### Project Blog
+---
+[Connecting the Props](https://christopherkalfas.github.io/connecting_the_props)
+
 
 ## Available Scripts
 
