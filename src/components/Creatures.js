@@ -10,5 +10,4 @@ const Creatures = props => (
         </div>
 )
 
-
 export default Creatures

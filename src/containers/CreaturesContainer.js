@@ -5,8 +5,7 @@ import { deleteCreature } from '../actions/creatureActions'
 
 
 
-class CreaturesContainer extends Component {
-    
+class CreaturesContainer extends Component { 
     constructor(){
         super()
 
@@ -23,17 +22,21 @@ class CreaturesContainer extends Component {
             }
         })
     }
- 
+
     render(){
         return(
             <div>
-            <input type='checkbox' onClick={this.handleClick}/>
-            <label>{this.state.hasBeenSorted ? 'Remove Filter' : 'Sort By Likes'}</label>
-            {this.state.hasBeenSorted ? (
-                <Creatures creatures={this.props.creatures.slice().sort((a,b) => b.likes - a.likes)} deleteCreature={this.props.deleteCreature} />
-            ) : (
-                 <Creatures creatures={this.props.creatures}  deleteCreature={this.props.deleteCreature}/>
-            )}
+            <div className="sort-checkbox">
+                <input type='checkbox' onClick={this.handleClick}/>
+                <label>
+                    {this.state.hasBeenSorted ? "Popularity doesn't matter to me" : " Sort by Popularity"}
+                </label>
+            </div>
+                    {this.state.hasBeenSorted ? (
+                        <Creatures creatures={this.props.creatures.slice().sort((a,b) => b.likes - a.likes)} deleteCreature={this.props.deleteCreature} />
+                    ) : (
+                        <Creatures creatures={this.props.creatures}  deleteCreature={this.props.deleteCreature}/>
+                    )}
             </div>
         )
     }
@@ -43,7 +46,6 @@ class CreaturesContainer extends Component {
 const mapStateToProps = state => {
     return {
         creatures: state.creatures,
-       //greeting: "Hello World" 
     }
 }
 
@@ -52,7 +54,5 @@ const dispatchStateToProps = dispatch =>{
         deleteCreature: (id) => dispatch(deleteCreature(id))
     }
 }
-
-
 
 export default connect(mapStateToProps, dispatchStateToProps)(CreaturesContainer)
