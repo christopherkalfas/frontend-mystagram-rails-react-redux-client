@@ -34,6 +34,12 @@ const creatureReducer = (state = { creatures: [],loading: false }, action) => {
                 })
             }
 
+        case 'DELETE_CREATURE':
+            return {
+                ...state,
+                creatures: state.creatures.filter(creature => creature.id !== action.id)
+            }
+
         default:
             return state
     }

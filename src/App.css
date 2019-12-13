@@ -152,6 +152,25 @@ li a:hover {
   padding-bottom: 5px;
 }
 
+#like-btn {
+  background: #39b7dd;
+  color: #f2f2f2;
+}
+
+#dislike-btn {
+  background: #dd4139;
+  color: #f2f2f2;
+}
+
+#delete-btn {
+  height: auto;
+  width: 70px;
+  text-align: center;
+  position: relative;float: right;
+ 
+  margin-right: 8px;
+}
+
 
 .wrapper {
   position: static;

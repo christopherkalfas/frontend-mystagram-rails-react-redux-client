@@ -17,7 +17,6 @@ class App extends Component {
   
   componentDidMount() {
     console.log(this.props)
-    //this.props.greeting();
     this.props.fetchCreatures()
   }
 
@@ -48,7 +47,6 @@ class App extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     fetchCreatures: () => dispatch(fetchCreatures()),
-    greeting: () => console.log('hello world')
   }
 }
 

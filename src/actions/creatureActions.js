@@ -5,9 +5,7 @@ export const fetchCreatures = () => {
             .then(response => {
                 return response.json()
             })
-            // .then(responseJSON => {
-            //     console.log(responseJSON)
-            // })
+            
             .then(responseJSON => {
                 dispatch({type: 'ADD_CREATURES', creatures: responseJSON })
             })
@@ -15,6 +13,7 @@ export const fetchCreatures = () => {
 }
 
 export const addNewCreature = ( creature, history ) => {
+    console.log('c')
     return dispatch => {
         return fetch('http://localhost:3001/creatures', {
             method: 'POST',
@@ -26,13 +25,16 @@ export const addNewCreature = ( creature, history ) => {
         })
         .then(response => response.json())
         .then(creature => {
+            console.log('d')
             dispatch({ type: 'ADD_NEW_CREATURE', creature })
             //making sure my promise is resolved before redirect
-            history.push('/creatures')
             //to make sure front end store has updated
+            history.push('/creatures')
+            //push new creature into history 'stack'
         })
-
+        
     }
+
 }
 
 export const updateLikes = (creature, actionType) => {
@@ -52,8 +54,25 @@ export const updateLikes = (creature, actionType) => {
             })
             .then(creature => {
                 dispatch({type: actionType, creature})
+                
 
             })
+    }
+}
+
+export const deleteCreature = (id) => {
+    return(dispatch) => {
+        return fetch(`http://localhost:3001/creatures/${id}`, {
+            method: 'DELETE',
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(creature => {
+            dispatch({type: 'DELETE_CREATURE', id: creature.id})
+        })
     }
 }
 
