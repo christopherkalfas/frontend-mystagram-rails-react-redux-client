@@ -63,8 +63,9 @@ export const deleteCreature = (id) => {
             }
         })
         .then(response => response.json())
-        .then(creature => {
-            dispatch({type: 'DELETE_CREATURE', id: creature.id})
+        .then( responseJSON => {
+            console.log(responseJSON)
+            dispatch({type: 'DELETE_CREATURE', id: responseJSON})
         })
     }
 }

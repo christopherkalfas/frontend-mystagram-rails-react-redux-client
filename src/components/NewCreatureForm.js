@@ -25,14 +25,12 @@ class NewCreatureForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        
         this.props.addNewCreature( {
             ...this.state,
             likes: 0
         }, this.props.history )
          //redirect to creatures page
          //after dispatch
-         
     }
 
     render() {
