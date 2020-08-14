@@ -5,7 +5,7 @@ const API_ROOT = process.env.NODE_ENV === "development" ? DEV_URL : PROD_URL
 export const fetchCreatures = () => {
     return (dispatch) => {
         dispatch({type: 'LOADING_CREATURES'})
-            return fetch('${API_ROOT}/creatures')
+            return fetch(`${API_ROOT}/creatures`)
                 .then(response => {
                     return response.json()
                 })
@@ -17,7 +17,7 @@ export const fetchCreatures = () => {
 
 export const addNewCreature = ( creature, history ) => {
     return dispatch => {
-        return fetch('http://${API_ROOT}/creatures', {
+        return fetch(`http://${API_ROOT}/creatures`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
