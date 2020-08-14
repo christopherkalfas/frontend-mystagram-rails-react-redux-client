@@ -17,7 +17,7 @@ export const fetchCreatures = () => {
 
 export const addNewCreature = ( creature, history ) => {
     return dispatch => {
-        return fetch(`http://${API_ROOT}/creatures`, {
+        return fetch(`${API_ROOT}/creatures`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -38,7 +38,7 @@ export const addNewCreature = ( creature, history ) => {
 
 export const updateLikes = (creature, actionType) => {
     return (dispatch) => {
-        return fetch(`http://${API_ROOT}/creatures/${creature.id}`, {
+        return fetch(`${API_ROOT}/creatures/${creature.id}`, {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
@@ -59,7 +59,7 @@ export const updateLikes = (creature, actionType) => {
 
 export const deleteCreature = (id) => {
     return(dispatch) => {
-        return fetch(`http://${API_ROOT}/creatures/${id}`, {
+        return fetch(`${API_ROOT}/creatures/${id}`, {
             method: 'DELETE',
             header: {
                 'Accept': 'application/json',
