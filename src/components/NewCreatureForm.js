@@ -43,6 +43,7 @@ class NewCreatureForm extends Component {
                         <input type="text" className="input" name="location" id="location" placeholder="Creature Location" value={this.state.location} onChange={this.handleChange} />
                         <input type="text" className="input" name="temperament" id="temperament" placeholder="Temperament" value={this.state.temperament} onChange={this.handleChange} />
                         <input type="text" className="input" name="image" id="image" placeholder="Image of Creature" value={this.state.image} onChange={this.handleChange} />
+                        <small className="form-info">Please host the image and add the link to the input field above.</small>
                     </div>
                     <input type="submit" value="Create Creature" className="submit-btn" />
                 </form>

@@ -212,6 +212,10 @@ li a:hover {
   color: #c5ecfd
 }
 
+.form-info {
+  color: #c5ecfd;
+}
+
 .submit-btn {
   background: #39b7dd;
   height: 25%;
