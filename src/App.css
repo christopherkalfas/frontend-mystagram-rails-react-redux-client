@@ -52,7 +52,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: #128085;
   text-align: center;
   padding: 16px;
   text-decoration: none;
@@ -68,6 +68,7 @@ li a:hover {
   border: 5px;
   border-radius: 3px;
   text-align: center;
+  position:relative;
 }
 
 .nav-container {
@@ -250,4 +251,8 @@ li a:hover {
 .sort-checkbox input {
   margin-right: 8px;
   transform: scale(1.4);
+}
+
+.link-container {
+  position: absolute; bottom: 0%; right:20px;
 }
