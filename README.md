@@ -3,7 +3,11 @@
 
 A full-stack app built on Rails(API) and React/Redux with Thunk middleware. Mystagram is a mix between Instagram and a Reddit thread. It allows users to add a mythical creature and up or down vote the creature based on popularity. 
 
+[Web App](http://mystagram-client.herokuapp.com)
+
 [Backend](https://github.com/christopherkalfas/backend-mystagram-rails-react-redux-api)
+
+[Portfolio](https://chriskalfas.com)
 
 ### Motivation
 ---
